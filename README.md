@@ -1,5 +1,7 @@
-Python container images
+Python container images with lftp, rsync, rclone
 ====================
+
+!!! Python S2i Image Enhanced with lftp, rsync, and rclone !!!
 
 This repository contains the source for building various versions of
 the Python application as a reproducible container image using

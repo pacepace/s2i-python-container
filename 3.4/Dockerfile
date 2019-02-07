@@ -36,8 +36,9 @@ LABEL summary="$SUMMARY" \
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="rh-python34 rh-python34-python-devel rh-python34-python-setuptools rh-python34-python-pip \
 	nss_wrapper httpd24 httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap \
-        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant" && \
+        httpd24-mod_session atlas-devel gcc-gfortran libffi-devel libtool-ltdl enchant lftp rsync" && \
     yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus $INSTALL_PKGS && \
+    curl https://rclone.org/install.sh | sudo bash && \
     rpm -V $INSTALL_PKGS && \
     # Remove centos-logos (httpd dependency, ~20MB of graphics) to keep image
     # size smaller.

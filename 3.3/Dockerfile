@@ -22,8 +22,9 @@ LABEL io.k8s.description="Platform for building and running Python 3.3 applicati
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="python33 python33-python-devel python33-python-setuptools nss_wrapper httpd24 \
         httpd24-httpd-devel httpd24-mod_ssl httpd24-mod_auth_kerb httpd24-mod_ldap httpd24-mod_session \
-	atlas-devel gcc-gfortran libffi-devel libtool-ltdl" && \
+	atlas-devel gcc-gfortran libffi-devel libtool-ltdl lftp rsync" && \
     yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus $INSTALL_PKGS && \
+    curl https://rclone.org/install.sh | sudo bash && \
     rpm -V $INSTALL_PKGS && \
     # Remove centos-logos (httpd dependency, ~20MB of graphics) to keep image
     # size smaller.
